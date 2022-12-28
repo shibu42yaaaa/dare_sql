@@ -34,3 +34,15 @@ GROUP BY
   WHEN pref_name IN ('福岡','佐賀') THEN '九州'
   ELSE NULL
   END;
+
+/*その２*/
+SELECT
+  CASE WHEN pref_name IN ('京都','大阪') THEN '関西'
+  WHEN pref_name IN ('福岡', '佐賀') THEN '九州'
+  ELSE NULL
+  END AS district,
+  SUM(population)
+FROM
+  populations
+GROUP BY district;
+
